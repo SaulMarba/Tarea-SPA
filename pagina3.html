@@ -1,0 +1,329 @@
+<!DOCTYPE html>
+<html lang="es" >
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>SPA Pag Pedido Gruesa</title>
+
+    <!-- CSS only -->
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3" crossorigin="anonymous">
+<link rel="stylesheet" href="/Tarea/index.css" >
+</head>
+<body>
+    <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+          
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+        </symbol>
+        <symbol id="home" viewBox="0 0 16 16">
+          <path d="M8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4.5a.5.5 0 0 0 .5-.5v-4h2v4a.5.5 0 0 0 .5.5H14a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146zM2.5 14V7.707l5.5-5.5 5.5 5.5V14H10v-4a.5.5 0 0 0-.5-.5h-3a.5.5 0 0 0-.5.5v4H2.5z"></path>
+        </symbol>
+        <symbol id="speedometer2" viewBox="0 0 16 16">
+          <path d="M8 4a.5.5 0 0 1 .5.5V6a.5.5 0 0 1-1 0V4.5A.5.5 0 0 1 8 4zM3.732 5.732a.5.5 0 0 1 .707 0l.915.914a.5.5 0 1 1-.708.708l-.914-.915a.5.5 0 0 1 0-.707zM2 10a.5.5 0 0 1 .5-.5h1.586a.5.5 0 0 1 0 1H2.5A.5.5 0 0 1 2 10zm9.5 0a.5.5 0 0 1 .5-.5h1.5a.5.5 0 0 1 0 1H12a.5.5 0 0 1-.5-.5zm.754-4.246a.389.389 0 0 0-.527-.02L7.547 9.31a.91.91 0 1 0 1.302 1.258l3.434-4.297a.389.389 0 0 0-.029-.518z"></path>
+          <path fill-rule="evenodd" d="M0 10a8 8 0 1 1 15.547 2.661c-.442 1.253-1.845 1.602-2.932 1.25C11.309 13.488 9.475 13 8 13c-1.474 0-3.31.488-4.615.911-1.087.352-2.49.003-2.932-1.25A7.988 7.988 0 0 1 0 10zm8-7a7 7 0 0 0-6.603 9.329c.203.575.923.876 1.68.63C4.397 12.533 6.358 12 8 12s3.604.532 4.923.96c.757.245 1.477-.056 1.68-.631A7 7 0 0 0 8 3z"></path>
+        </symbol>
+        <symbol id="table" viewBox="0 0 16 16">
+          <path d="M0 2a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V2zm15 2h-4v3h4V4zm0 4h-4v3h4V8zm0 4h-4v3h3a1 1 0 0 0 1-1v-2zm-5 3v-3H6v3h4zm-5 0v-3H1v2a1 1 0 0 0 1 1h3zm-4-4h4V8H1v3zm0-4h4V4H1v3zm5-3v3h4V4H6zm4 4H6v3h4V8z"></path>
+        </symbol>
+        <symbol id="people-circle" viewBox="0 0 16 16">
+          <path d="M11 6a3 3 0 1 1-6 0 3 3 0 0 1 6 0z"></path>
+          <path fill-rule="evenodd" d="M0 8a8 8 0 1 1 16 0A8 8 0 0 1 0 8zm8-7a7 7 0 0 0-5.468 11.37C3.242 11.226 4.805 10 8 10s4.757 1.225 5.468 2.37A7 7 0 0 0 8 1z"></path>
+        </symbol>
+        <symbol id="grid" viewBox="0 0 16 16">
+          <path d="M1 2.5A1.5 1.5 0 0 1 2.5 1h3A1.5 1.5 0 0 1 7 2.5v3A1.5 1.5 0 0 1 5.5 7h-3A1.5 1.5 0 0 1 1 5.5v-3zM2.5 2a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 1h3A1.5 1.5 0 0 1 15 2.5v3A1.5 1.5 0 0 1 13.5 7h-3A1.5 1.5 0 0 1 9 5.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zM1 10.5A1.5 1.5 0 0 1 2.5 9h3A1.5 1.5 0 0 1 7 10.5v3A1.5 1.5 0 0 1 5.5 15h-3A1.5 1.5 0 0 1 1 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3zm6.5.5A1.5 1.5 0 0 1 10.5 9h3a1.5 1.5 0 0 1 1.5 1.5v3a1.5 1.5 0 0 1-1.5 1.5h-3A1.5 1.5 0 0 1 9 13.5v-3zm1.5-.5a.5.5 0 0 0-.5.5v3a.5.5 0 0 0 .5.5h3a.5.5 0 0 0 .5-.5v-3a.5.5 0 0 0-.5-.5h-3z"></path>
+        </symbol>
+      </svg>
+      
+      <!---NAV-->
+      <header class="p-3 bg-warning border-bottom">
+        <div class="container">
+          <div class="d-flex flex-wrap align-items-center justify-content-center justify-content-lg-start">
+            
+    
+            <ul class="nav col-12 col-lg-auto me-lg-auto mb-2 justify-content-center mb-md-0">
+              <li><a href="/Tarea/index.html" class="nav-link px-2 link-dark"><b>Inicio</b></a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">Inventario</a></li>
+              <li><a href="#" class="nav-link px-2 link-dark">Cliente</a></li>
+              <li><a href="/Tarea/pagina1.html" class="nav-link px-2 link-dark">Productos</a></li>
+            </ul>
+    
+            <form class="col-12 col-lg-auto mb-3 mb-lg-0 me-lg-3">
+              <input type="search" class="form-control" placeholder="Buscar..." aria-label="Search">
+            </form>
+    
+            <div class="dropdown text-end">
+              <a href="#" class="d-block link-dark text-decoration-none dropdown-toggle" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+                <img src="data:image/png;base64,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" alt="mdo" width="32" height="32" class="rounded-circle">
+              </a>
+              <ul class="dropdown-menu text-small" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="#">Nuevo...</a></li>
+                <li><a class="dropdown-item" href="#">Ajustes</a></li>
+                <li><a class="dropdown-item" href="#">Perfil</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><a class="dropdown-item" href="#">Desconectar</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </header>
+          
+      <!---Inicio Formulario-->
+      
+      <div class="container">
+        <main>
+          <div class="py-5 text-center">
+            
+            <h2>Formulario de Pago</h2>
+            <p class="lead">A continuación completa el formulario con tus datos para realizar el pedido.</p>
+          </div>
+      
+          <div class="row g-5">
+            <div class="col-md-5 col-lg-4 order-md-last">
+              <h4 class="d-flex justify-content-between align-items-center mb-3">
+                <span class="text-primary">Tu Carrito</span>
+                <span class="badge bg-primary rounded-pill">3</span>
+              </h4>
+              <ul class="list-group mb-3">
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Arena Gruesa</h6>
+                    <small class="text-muted">Descripción</small>
+                  </div>
+                  <span class="text-muted">$1200</span>
+                </li>
+                
+                <li class="list-group-item d-flex justify-content-between lh-sm">
+                  <div>
+                    <h6 class="my-0">Envío</h6>
+                    <small class="text-muted">descripcion</small>
+                  </div>
+                  <span class="text-muted">$0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between bg-light">
+                  <div class="text-success">
+                    <h6 class="my-0">Código de promocion</h6>
+                    <small>Codigo Ejemplo</small>
+                  </div>
+                  <span class="text-success">−$0</span>
+                </li>
+                <li class="list-group-item d-flex justify-content-between">
+                  <span>Total (ARS)</span>
+                  <strong>$1200</strong>
+                </li>
+              </ul>
+      
+              <form class="card p-2">
+                <div class="input-group">
+                  <input type="text" class="form-control" placeholder="Insertar código">
+                  <button type="submit" class="btn btn-secondary">Canjear</button>
+                </div>
+              </form>
+            </div>
+            <!---Formulario de Datos personales-->
+            <div class="col-md-7 col-lg-8">
+              <h4 class="mb-3">Datos de Envio</h4>
+              <form class="needs-validation" novalidate="">
+                <div class="row g-3">
+                  <div class="col-sm-6">
+                    <label for="firstName" class="form-label">Nombre</label>
+                    <input type="text" class="form-control" id="firstName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                      completar tu Nombre es obligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-sm-6">
+                    <label for="lastName" class="form-label">Apellido</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required="">
+                    <div class="invalid-feedback">
+                      Completar tu Apellido es obligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                    <label for="username" class="form-label">Nombre de Usuario</label>
+                    <div class="input-group has-validation">
+                      <span class="input-group-text">@</span>
+                      <input type="text" class="form-control" id="username" placeholder="Nombre de Usuario" required="">
+                    <div class="invalid-feedback">
+                        Completar tu nombre de usuario es obligatorio.
+                      </div>
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                    <label for="email" class="form-label">Correo <span class="text-muted">(Opcional)</span></label>
+                    <input type="email" class="form-control" id="email" placeholder="usuario@ejemplo.com">
+                    <div class="invalid-feedback">
+                        Ingrese una dirección de correo electrónico válida para actualizaciones de envío.
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                    <label for="address" class="form-label">Direccion</label>
+                    <input type="text" class="form-control" id="address" placeholder="Calle 1234" required="">
+                    <div class="invalid-feedback">
+                        Por favor introduzca su direccion de envio.
+                    </div>
+                  </div>
+      
+                  <div class="col-12">
+                    <label for="address2" class="form-label">Direccion 2 <span class="text-muted">(Opcional)</span></label>
+                    <input type="text" class="form-control" id="address2" placeholder="Apartamento/Piso">
+                  </div>
+      
+                  <div class="col-md-5">
+                    <label for="country" class="form-label">País</label>
+                    <select class="form-select" id="country" required="">
+                      <option value="">Elegir...</option>
+                      <option>Argentina</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor elija una opción válida.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-4">
+                    <label for="state" class="form-label">Provincia</label>
+                    <select class="form-select" id="state" required="">
+                      <option value="">Elegir...</option>
+                      <option>Chaco</option>
+                      <option>Corrientes</option>
+                      <option>Misiones</option>
+                      <option>Formosa</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Por favor elija opción válida.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <label for="zip" class="form-label">Código Postal</label>
+                    <input type="text" class="form-control" id="zip" placeholder="" required="">
+                    <div class="invalid-feedback">
+                      Código postal obligatorio.
+                    </div>
+                  </div>
+                </div>
+      
+                <hr class="my-4">
+      
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="same-address">
+                  <label class="form-check-label" for="same-address">La dirección de envío es la misma que mi dirección de facturación</label>
+                </div>
+      
+                <div class="form-check">
+                  <input type="checkbox" class="form-check-input" id="save-info">
+                  <label class="form-check-label" for="save-info">Guarda esta información para la próxima vez</label>
+                </div>
+      
+                <hr class="my-4">
+      
+                <h4 class="mb-3">Método de Pago</h4>
+      
+                <div class="my-3">
+                  <div class="form-check">
+                    <input id="credit" name="paymentMethod" type="radio" class="form-check-input" checked="" required="">
+                    <label class="form-check-label" for="credit">Tarjeta de Crédito</label>
+                  </div>
+                  <div class="form-check">
+                    <input id="debit" name="paymentMethod" type="radio" class="form-check-input" required="">
+                    <label class="form-check-label" for="debit">Tarjeta de Débito</label>
+                  </div>
+                  <div class="form-check">
+                    <input id="paypal" name="paymentMethod" type="radio" class="form-check-input" required="">
+                    <label class="form-check-label" for="paypal">PayPal</label>
+                  </div>
+                </div>
+      
+                <div class="row gy-3">
+                  <div class="col-md-6">
+                    <label for="cc-name" class="form-label">Nombre en la tarjeta</label>
+                    <input type="text" class="form-control" id="cc-name" placeholder="" required="">
+                    <small class="text-muted">Nombre completo como aparece en la tarjeta.</small>
+                    <div class="invalid-feedback">
+                      Nombre de la tarjeta es obligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-6">
+                    <label for="cc-number" class="form-label">Número de Tarjeta de Crédito</label>
+                    <input type="text" class="form-control" id="cc-number" placeholder="" required="">
+                    <div class="invalid-feedback">
+                      Numero de tarjeta es obligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <label for="cc-expiration" class="form-label">Vencimiento</label>
+                    <input type="text" class="form-control" id="cc-expiration" placeholder="MM/AA" required="">
+                    <div class="invalid-feedback">
+                      Vencimiento es obligatorio.
+                    </div>
+                  </div>
+      
+                  <div class="col-md-3">
+                    <label for="cc-cvv" class="form-label">CVV</label>
+                    <input type="text" class="form-control" id="cc-cvv" placeholder="Código de Tarjeta" required="">
+                    <div class="invalid-feedback">
+                      Código de seguridad obligatorio.
+                    </div>
+                  </div>
+                </div>
+      
+                <hr class="my-4">
+      
+                <button class="w-100 btn btn-primary btn-lg" type="submit">Realizar Pedido</button>
+              </form>
+            </div>
+          </div>
+        </main>
+      
+        <footer class="my-5 pt-5 text-muted text-center text-small">
+          <p class="mb-1">© 2018–2022  El Galeon</p>
+          
+        </footer>
+      </div>
+
+      <svg xmlns="http://www.w3.org/2000/svg" style="display: none;">
+        <symbol id="bootstrap" viewBox="0 0 118 94">
+          
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M24.509 0c-6.733 0-11.715 5.893-11.492 12.284.214 6.14-.064 14.092-2.066 20.577C8.943 39.365 5.547 43.485 0 44.014v5.972c5.547.529 8.943 4.649 10.951 11.153 2.002 6.485 2.28 14.437 2.066 20.577C12.794 88.106 17.776 94 24.51 94H93.5c6.733 0 11.714-5.893 11.491-12.284-.214-6.14.064-14.092 2.066-20.577 2.009-6.504 5.396-10.624 10.943-11.153v-5.972c-5.547-.529-8.934-4.649-10.943-11.153-2.002-6.484-2.28-14.437-2.066-20.577C105.214 5.894 100.233 0 93.5 0H24.508zM80 57.863C80 66.663 73.436 72 62.543 72H44a2 2 0 01-2-2V24a2 2 0 012-2h18.437c9.083 0 15.044 4.92 15.044 12.474 0 5.302-4.01 10.049-9.119 10.88v.277C75.317 46.394 80 51.21 80 57.863zM60.521 28.34H49.948v14.934h8.905c6.884 0 10.68-2.772 10.68-7.727 0-4.643-3.264-7.207-9.012-7.207zM49.948 49.2v16.458H60.91c7.167 0 10.964-2.876 10.964-8.281 0-5.406-3.903-8.178-11.425-8.178H49.948z"></path>
+        </symbol>
+        <symbol id="facebook" viewBox="0 0 16 16">
+          <path d="M16 8.049c0-4.446-3.582-8.05-8-8.05C3.58 0-.002 3.603-.002 8.05c0 4.017 2.926 7.347 6.75 7.951v-5.625h-2.03V8.05H6.75V6.275c0-2.017 1.195-3.131 3.022-3.131.876 0 1.791.157 1.791.157v1.98h-1.009c-.993 0-1.303.621-1.303 1.258v1.51h2.218l-.354 2.326H9.25V16c3.824-.604 6.75-3.934 6.75-7.951z"></path>
+        </symbol>
+        <symbol id="instagram" viewBox="0 0 16 16">
+            <path d="M8 0C5.829 0 5.556.01 4.703.048 3.85.088 3.269.222 2.76.42a3.917 3.917 0 0 0-1.417.923A3.927 3.927 0 0 0 .42 2.76C.222 3.268.087 3.85.048 4.7.01 5.555 0 5.827 0 8.001c0 2.172.01 2.444.048 3.297.04.852.174 1.433.372 1.942.205.526.478.972.923 1.417.444.445.89.719 1.416.923.51.198 1.09.333 1.942.372C5.555 15.99 5.827 16 8 16s2.444-.01 3.298-.048c.851-.04 1.434-.174 1.943-.372a3.916 3.916 0 0 0 1.416-.923c.445-.445.718-.891.923-1.417.197-.509.332-1.09.372-1.942C15.99 10.445 16 10.173 16 8s-.01-2.445-.048-3.299c-.04-.851-.175-1.433-.372-1.941a3.926 3.926 0 0 0-.923-1.417A3.911 3.911 0 0 0 13.24.42c-.51-.198-1.092-.333-1.943-.372C10.443.01 10.172 0 7.998 0h.003zm-.717 1.442h.718c2.136 0 2.389.007 3.232.046.78.035 1.204.166 1.486.275.373.145.64.319.92.599.28.28.453.546.598.92.11.281.24.705.275 1.485.039.843.047 1.096.047 3.231s-.008 2.389-.047 3.232c-.035.78-.166 1.203-.275 1.485a2.47 2.47 0 0 1-.599.919c-.28.28-.546.453-.92.598-.28.11-.704.24-1.485.276-.843.038-1.096.047-3.232.047s-2.39-.009-3.233-.047c-.78-.036-1.203-.166-1.485-.276a2.478 2.478 0 0 1-.92-.598 2.48 2.48 0 0 1-.6-.92c-.109-.281-.24-.705-.275-1.485-.038-.843-.046-1.096-.046-3.233 0-2.136.008-2.388.046-3.231.036-.78.166-1.204.276-1.486.145-.373.319-.64.599-.92.28-.28.546-.453.92-.598.282-.11.705-.24 1.485-.276.738-.034 1.024-.044 2.515-.045v.002zm4.988 1.328a.96.96 0 1 0 0 1.92.96.96 0 0 0 0-1.92zm-4.27 1.122a4.109 4.109 0 1 0 0 8.217 4.109 4.109 0 0 0 0-8.217zm0 1.441a2.667 2.667 0 1 1 0 5.334 2.667 2.667 0 0 1 0-5.334z"></path>
+        </symbol>
+        
+      </svg>
+
+      <div class="container">
+        <footer class="d-flex flex-wrap justify-content-between align-items-center py-3 my-4 border-top">
+          <div class="col-md-4 d-flex align-items-center">
+            
+            
+          </div>
+      
+          <ul class="nav col-md-4 justify-content-end list-unstyled d-flex">
+            
+            <li class="ms-3"><a class="text-muted" href="https://www.instagram.com/elgaleon.arena/" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#instagram"></use></svg></a></li>
+            <li class="ms-3"><a class="text-muted" href="https://www.facebook.com/profile.php?id=100071946707576" target="_blank"><svg class="bi" width="24" height="24"><use xlink:href="#facebook"></use></svg></a></li>
+          </ul>
+        </footer>
+      </div>
+      
+    
+      
+    
+   
+
+
+    <!-- JavaScript Bundle with Popper -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-ka7Sk0Gln4gmtz2MlQnikT1wXgYsOg+OMhuP+IlRH9sENBO0LRn5q+8nbTov4+1p" crossorigin="anonymous"></script>
+</body>
+</html>
